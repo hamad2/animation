@@ -87,7 +87,7 @@
             font-family: helvetica;
             font-size: 12px;
             line-height: 18px;
-            width: 245px;
+            width: auto;
             padding: 5px 10px;
         }
 
@@ -173,7 +173,20 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            width: 300px;
+            width: auto;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        .stepProgressBar .step:last-child .bullet:after {
+            display: none !important;
+        }
+
+        .stepProgressBar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: auto;
             margin: 0 auto;
             margin-bottom: 40px;
         }
@@ -190,12 +203,13 @@
         }
 
 
+
         .bullet {
-            border: 1px solid #28a745;
+            /* border: 1px solid #28a745; */
             height: 20px;
             width: 20px;
             border-radius: 100%;
-            color: #28a745;
+            /* color: #28a745; */
             display: inline-block;
             position: relative;
             transition: background-color 500ms;
@@ -205,7 +219,7 @@
 
         .bullet.completed {
             color: white;
-            background-color: #28a745;
+           /* // background-color: #28a745; */
         }
 
 
@@ -217,7 +231,7 @@
             bottom: 10px;
             height: 1px;
             width: 54px;
-            background-color: #28a745;
+            background-color: #28a745; 
         }
 
         /* Base styles and helper stuff */
@@ -269,9 +283,9 @@
         </div>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
 
-        <div id="stepProgressBar">
+        <div class="stepProgressBar">
             <div class="step">
                 <p class="step-text">About</p>
                 <div class="bullet completed"></div>
@@ -290,12 +304,7 @@
             </div>
         </div>
 
-    </div>
-
-
-
-
-
+    </div> -->
 
     <script>
         var json = {
@@ -304,46 +313,28 @@
                     "unitno": "Personal kanban",
                     "unitnocolor": "blue",
                     "title": "Welcome to Personal Kanban",
-                    "task":"1",
-                    "task":"2",
-                    "task":"3",
-                    "task":"4"
-                   
-                      
+                    "task": "First,second,third"
 
                 },
                 {
                     "unitno": "2",
                     "unitnocolor": "red",
                     "title": "A Brief Introduction to Personal Kanban",
-                    "task":"1",
-                    "task":"2",
-                    "task":"3",
-                    "task":"4"
-                   
+                    "task": "four,five, six"
 
                 },
                 {
                     "unitno": "3",
                     "unitnocolor": "yellow",
                     "title": "What to Do: The Backlog and Options Column",
-                    "task":"1",
-                    "task":"2",
-                    "task":"3",
-                    "task":"4"
-                
+                    "task": "seven, eight,nine"
 
                 },
                 {
                     "unitno": "4",
                     "unitnocolor": "green",
                     "title": "What to Do Now: The Doing Column",
-                    "task":"1",
-                    "task":"2",
-                    "task":"3",
-                    "task":"4"
-                   
-
+                    "task": "f,g"
                 }
 
             ]
@@ -352,110 +343,30 @@
     </script>
     <script type="text/javascript">
 
-
-
-
         var items = json.units;
         console.log(items);
-        var step = json.steps;
-
-          
-       
         for (var i = 0; i < items.length; i++) {
-            var unitdiv = document.createElement("div");
-            unitdiv.innerHTML = "";
-            document.getElementById("main").appendChild(unitdiv);
-         
-            // create radio
-            var input = document.createElement("input");
-            input.setAttribute("type", "radio");
-            input.setAttribute("name", "size");
-            input.setAttribute("id", items[i].unitno);
-            input.setAttribute("value", items[i].unitno);
-
-            unitdiv.appendChild(input);
-            // Create Label
-            var label = document.createElement("label");
-            label.setAttribute("for", items[i].unitno);
-            label.style.backgroundColor = items[i].unitnocolor;
-            label.innerHTML = items[i].unitno;
-            unitdiv.appendChild(label);
-
-            //create Steps
-           // for (var j = 0; j < step.length; j++) {
-            var step = document.createElement('div');
-            
-            step.classList.add("step");
-            var p = document.createElement('p');
-            p.classList.add("step-text");
-            step.appendChild(p);
-            p.innerHTML=items[i].task[i];
-           
-
-            var content= document.createElement('div');
-            step.appendChild(content);
-            content.classList.add('bullet');
-            content.classList.add('completed');
-
-            // step.appendChild(p);
-            
-            //     p.innerHTML=step[i].step1;
-         
-           //}
-           
-          
-            //step.innerHTML=stp[i];
-
-            
-
-
-            // create Svg
-            // var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-            // svg.setAttribute("height", "210");
-            // svg.setAttribute("width", "800");
-            // svg.innerHTML = "";
-
-            // /////// SVG Text
-            // var text = document.createElementNS('http://www.w3.org/2000/svg', 'text')
-            // text.setAttribute("x", "15");
-            // text.setAttribute("y", "10");
-            // text.setAttribute("font-size", "75%")
-            // text.innerHTML = items[i].title;
-
-
-            // //////////SVG Line
-            // var newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            // newLine.setAttribute('x1', '15');
-            // newLine.setAttribute('y1', '20');
-            // newLine.setAttribute('x2', '250');
-            // newLine.setAttribute('y2', '20');
-            // newLine.setAttribute("style", "stroke:rgb(76,115,0); stroke-width:5");
-
-            // svg.appendChild(text);
-            // svg.append(newLine);
-            //create article
-            var article = document.createElement("article");
-            // article.appendChild(svg);
-            article.appendChild(step);
-            unitdiv.appendChild(article);
-
-
-            //console.log("value of i : ",i);
-
-
+            var output = '<div><input type="radio" name="size" id="' + items[i].unitno + '" value="' + items[i].unitno + '"><label for="' + items[i].unitno + '" style="background-color: ' + items[i].unitnocolor + '">' + items[i].unitno + '</label><article><div class="stepProgressBar stepProgressBar' + i + '"></div></article></div>';
+            jQuery('#main').append(output);
+            var array = items[i].task.split(',').length;
+            var parray = items[i].task.split(',');
+            for (var k = 0; k < array; k++) {
+                var put = '<div class="step"><p class="step-text">' + parray[k] + '</p><div class="bullet completed" '+ 'style=background-color:' + items[i].unitnocolor+' "></div></div>';
+                jQuery('.stepProgressBar' + i + '').append(put);
+            }
 
         }
     </script>
 
     <script>
-        // function myFunction() {
-        //     var x = document.getElementById("main");
-        //     if (x.style.display === "inline-block") {
-        //         x.style.display = "none";
-        //     } else {
-        //         x.style.display = "inline-block";
-        //     }
-        // }
+        function myFunction() {
+            var x = document.getElementById("main");
+            if (x.style.display === "inline-block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "inline-block";
+            }
+        }
     </script>
 
 </body>

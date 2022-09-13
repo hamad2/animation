@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
     <style>
+     
         form {
             position: relative;
             /* margin-top:20px; */
@@ -31,7 +32,7 @@
         input:checked+label,
         label:hover {
             background: #4c7300;
-            background: -webkit-linear-gradient(top, #8db43e, #dcf3d2);
+            /* background: -webkit-linear-gradient(top, #8db43e, #dcf3d2); */
             border: solid 1px rgba(0, 0, 0, .15);
             color: white;
             box-shadow: 0 1px 1px rgba(0, 0, 0, .65), 0 1px 0 rgba(255, 255, 255, .1) inset;
@@ -44,13 +45,14 @@
             display: block;
             border: solid 1px transparent;
             text-align: center;
-            line-height: 40px;
+            color: white;
             border-radius: 50%;
 
             float: left;
             width: 130px;
             height: 130px;
-            line-height: 40px;
+            line-height: 130px;
+            word-wrap: break-word;
         }
 
         label:last-child {
@@ -92,7 +94,7 @@
         }
 
         div>input:checked~article {
-            width: 255px;
+            width: 450px;
             opacity: 1;
         }
 
@@ -205,11 +207,11 @@
 
 
         .bullet {
-            /* border: 1px solid #28a745; */
+            border: 1px solid #28a745;
             height: 20px;
             width: 20px;
             border-radius: 100%;
-            /* color: #28a745; */
+            color: #28a745;
             display: inline-block;
             position: relative;
             transition: background-color 500ms;
@@ -219,7 +221,7 @@
 
         .bullet.completed {
             color: white;
-           /* // background-color: #28a745; */
+            background-color: #28a745;
         }
 
 
@@ -231,7 +233,7 @@
             bottom: 10px;
             height: 1px;
             width: 54px;
-            background-color: #28a745; 
+            background-color: #28a745;
         }
 
         /* Base styles and helper stuff */
@@ -282,8 +284,8 @@
             </form>
         </div>
     </div>
-
-    <!-- <div class="container">
+    <!-- 
+    <div class="container">
 
         <div class="stepProgressBar">
             <div class="step">
@@ -310,17 +312,17 @@
         var json = {
             "units": [
                 {
-                    "unitno": "Personal kanban",
+                    "unitno": "Personal kanban Basic",
                     "unitnocolor": "blue",
                     "title": "Welcome to Personal Kanban",
-                    "task": "First,second,third"
+                    "task": "Welcome to Personal Kanban,A Brief Introduction to Personal Kanban,What do: The Backlog and Optoins Column,Info at a Glance: Information Radiators"
 
                 },
                 {
-                    "unitno": "2",
+                    "unitno": "Personal kanban kanban",
                     "unitnocolor": "red",
                     "title": "A Brief Introduction to Personal Kanban",
-                    "task": "four,five, six"
+                    "task": "what if we go eat lunch,five, six"
 
                 },
                 {
@@ -351,7 +353,7 @@
             var array = items[i].task.split(',').length;
             var parray = items[i].task.split(',');
             for (var k = 0; k < array; k++) {
-                var put = '<div class="step"><p class="step-text">' + parray[k] + '</p><div class="bullet completed" '+ 'style=background-color:' + items[i].unitnocolor+' "></div></div>';
+                var put = '<div class="step"><p class="step-text">' + parray[k] + '</p><div style="background:' + items[i].unitnocolor + '" class="bullet completed"></div></div>';
                 jQuery('.stepProgressBar' + i + '').append(put);
             }
 

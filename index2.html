@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        /*LIST*/
+        ul {
+            list-style: none;
+        }
+
+        /* hide the radio buttons */
+
+        /*FORM*/
+        input {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+
+        /* Style the Label */
+        label {
+          
+
+            display: block;
+            float: left;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            /* margin-bottom: 10px; */
+            overflow: hidden;
+
+            background: #999;
+            text-align: center;
+            font: 14px/50px 'Lato', sans-serif;
+
+            -webkit-transition: width 1s ease, background 0.5s ease;
+            -moz-transition: width 1s ease, background 0.5s ease;
+            -o-transition: width 1s ease, background 0.5s ease;
+            -ms-transition: width 1s ease, background 0.5s ease;
+            transition: width 1s ease, background 0.5s ease;
+        }
+
+        /* More Label Styling */
+        #rad2+label {
+            background: #888;
+            -webkit-transition: width 1s ease, background 0.5s ease;
+            -moz-transition: width 1s ease, background 0.5s ease;
+            -o-transition: width 1s ease, background 0.5s ease;
+            -ms-transition: width 1s ease, background 0.5s ease;
+            transition: width 1s ease, background 0.5s ease;
+        }
+
+        label:hover,
+        #rad2+label:hover {
+            background: #232323;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Style the Slides */
+        /*SLIDES*/
+        .accslide {
+            display: block;
+            height: 330px;
+            width: 0px;
+            padding: 10px 0;
+            float: left;
+            overflow: hidden;
+
+            color: #333;
+            background: #fff;
+            font: 12px/1.5 Helvetica, Verdana, sans-serif;
+
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+        .accslide p,
+        h2,
+        img {
+            width: 420px;
+            padding-left: 10px;
+        }
+
+        .accslide img {
+            margin-top: 10px;
+        }
+
+        /* Expand When Selected */
+        input[type="radio"]:checked~.accslide {
+            width: 450px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <ul>
+            <li>
+                <input id="rad1" type="radio" name="rad">
+                <label for="rad1">1</label>
+                <div class="accslide">
+                    <h2>Slide 1</h2>
+                    <p>Lorem ipsum...</p>
+                    <img src="http://lorempixum.com/420/200/city/1" alt="">
+                </div>
+            </li>
+            <li>
+                <input id="rad2" type="radio" name="rad">
+                <label for="rad2">2</label>
+                <div class="accslide">
+                    <h2>Slide 2</h2>
+                    <p>Lorem ipsum...</p>
+                    <img src="http://lorempixum.com/420/200/city/2" alt="">
+                </div>
+            </li>
+            <li>
+                <input id="rad3" type="radio" name="rad">
+                <label for="rad3">3</label>
+                <div class="accslide">
+                    <h2>Slide 3</h2>
+                    <p>Lorem ipsum...</p>
+                    <img src="http://lorempixum.com/420/200/city/3" alt="">
+                </div>
+            </li>
+        </ul>
+    </form>
+</body>
+
+</html>
